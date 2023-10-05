@@ -1,1 +1,1 @@
-# ProyectoDeAula3
+Buenas noches profesor, mi proyecto esta falto de varias cosas. Me confie pensando que no me demoraría casi y no me darían tantos problemas, pero no fue así. Una disuclpa grandisima porque solo funciona lo de agregar una idea de negocios. De ante mano mil disculpas y gracias por su comprensión 
