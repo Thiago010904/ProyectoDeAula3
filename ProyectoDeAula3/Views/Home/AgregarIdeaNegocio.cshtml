@@ -1,0 +1,120 @@
+﻿@{
+    Layout = "~/Views/Home/AgregarIdeaNegocio.cshtml"; // Cambia esta ruta por la del nuevo Layout
+}
+
+
+<html>
+    <head>
+        <title>Formulario de Registro de Ideas de Negocio</title>
+    </head>
+    <body>
+
+        <h1>Formulario de Registro de Ideas de Negocio</h1>
+
+        <form id="ideaForm">
+            <label for="nombreIdea">Nombre de la idea de negocio:</label>
+            <input type="text" id="nombreIdea" name="nombreIdea" required><br><br>
+
+            <label for="impacto">Impacto social o económico:</label>
+            <input id="impacto" name="impacto" required><br><br>
+
+            <h5 for="departamentos">Departamentos que se benefician:</h5><br>
+            <div id="departamentosContainer">
+                <div class="departamento">
+                    <label for="codigoDepartamento">Código:</label>
+                    <input type="number" name="codigoDepartamento[]" required>
+
+                    <label for="nombreDepartamento">Nombre:</label>
+                    <input type="text" name="nombreDepartamento[]" required>
+
+                    <button type="button" onclick="eliminarElemento(this)">Eliminar</button>
+                    <br><br>
+                </div>
+            </div>
+
+            <button type="button" onclick="agregarDepartamento()">Agregar departamento</button><br><br>
+
+            <label for="inversion">Valor de la inversión:</label>
+            <input type="number" id="inversion" name="inversion" required><br><br>
+
+            <label for="ingresos">Total de ingresos en los primeros 3 años:</label>
+            <input type="number" id="ingresos" name="ingresos" required><br><br>
+
+            <h5 for="integrantes">Integrantes del equipo:</h5><br>
+            <div id="integrantesContainer">
+                <div class="integrante">
+                    <label for="identificacion">Identificación:</label>
+                    <input type="number" name="identificacion[]" required>
+
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre[]" required>
+
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" name="apellidos[]" required>
+
+                    <label for="rol">Rol:</label>
+                    <input type="text" name="rol[]" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" name="email[]" required>
+
+                    <button type="button" onclick="eliminarElemento(this)">Eliminar</button><br><br>
+                </div>
+            </div>
+
+            <button type="button" onclick="agregarIntegrante()">Agregar integrante</button><br><br>
+
+            <label for="herramientas">Herramientas de la 4RI utilizadas:</label>
+            <input type="text" id="herramientas" name="herramientas" required><br><br>
+
+            <button type="submit">Subir idea de negocio</button>
+        </form>
+
+        <script>
+            function agregarDepartamento() {
+                var container = document.getElementById("departamentosContainer");
+                var departamentoDiv = document.createElement("div");
+                departamentoDiv.className = "departamento";
+
+                departamentoDiv.innerHTML = `
+                            <label for="codigoDepartamento">Código:</label>
+                            <input type="text" name="codigoDepartamento[]" required>
+                            <label for="nombreDepartamento">Nombre:</label>
+                            <input type="text" name="nombreDepartamento[]" required>
+                            <button type="button" onclick="eliminarElemento(this)">Eliminar</button>
+                            <hr>
+                          `;
+
+                container.appendChild(departamentoDiv);
+            }
+
+            function agregarIntegrante() {
+                var container = document.getElementById("integrantesContainer");
+                var integranteDiv = document.createElement("div");
+                integranteDiv.className = "integrante";
+
+                integranteDiv.innerHTML = `
+                            <label for="identificacion">Identificación:</label>
+                            <input type="text" name="identificacion[]" required>
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" name="nombre[]" required>
+                            <label for="apellidos">Apellidos:</label>
+                            <input type="text" name="apellidos[]" required>
+                            <label for="rol">Rol:</label>
+                            <input type="text" name="rol[]" required>
+                            <label for="email">Email:</label>
+                            <input type="email" name="email[]" required>
+                            <button type="button" onclick="eliminarElemento(this)">Eliminar</button>
+                            <hr>
+                          `;
+
+                container.appendChild(integranteDiv);
+            }
+
+            function eliminarElemento(elemento) {
+                elemento.parentNode.remove();
+            }
+        </script>
+
+    </body>
+</html>
